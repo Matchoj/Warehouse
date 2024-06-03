@@ -1,7 +1,10 @@
 from menu import func,Pa,Loading
 import os
+
+# Loading Data
 Loading(Pa)
 
+# Displaying Manu
 def Display():
     n=1
     line="*"*40
@@ -13,6 +16,7 @@ def Display():
     print("{:15} {}".format("",line))
     print("\n")
 
+# Function is returning choice of user
 def Choose():
     try:
         choice=int(input("Command : "))
@@ -26,14 +30,15 @@ def Choose():
         Choose()
     return choice-1
 
+# This function will generate one of the functions in list func
 def Answer(arg):
     x=func[arg]
     return x
 
-
+# Main loop
 Con = True
 while Con:
-    #os.system("cls")
+    os.system("cls")
     Display()
     a1=Choose()
     a2=Answer(a1)

@@ -11,7 +11,7 @@ def number(arg):
     return i
 
 
-
+# Creating main object
 class Accesories:
     Editfunc = []
     store=[]
@@ -24,6 +24,7 @@ class Accesories:
         self.__promotion = promotion
         Accesories.store.append(self)
 
+# method to see details of object
     def show(self):
         print("Name = {}".format(self.name))
         print("Kind = {}".format(self.kind))
@@ -32,6 +33,7 @@ class Accesories:
         print("Q = {}".format(self.q))
         print("Promotion= {}".format(self.__promotion))
 
+# method to modfy object
     def set_price(self,price):
         self.price = number(price)
     def set_kind(self,kind):
@@ -55,6 +57,7 @@ class Accesories:
         else:
             print("cannot change status!")
 
+# Methods to import/export objects from/to .csv file
     @classmethod
     def importdata(cls,path):
         with open(path,"w") as file:
@@ -69,6 +72,7 @@ class Accesories:
         Text2=cls(*txt.split(";"))
         return Text2
 
+# Method for creating Object
     @staticmethod
     def Newitem():
         name=input("name :")
@@ -80,12 +84,14 @@ class Accesories:
         line=name +';'+kind+';'+price+';'+unit+';'+q+';'+promotin
         return line
 
+# Method for deleting object
     def __delete__(self, instance):
         instance.__delete
 
 
     PromoChange = property(get_promotion,set_prmomotion,None)
 
+# Grouping modfy methods in one list
     Editfunc.append(set_name)
     Editfunc.append(set_kind)
     Editfunc.append(set_price)
